@@ -1,0 +1,236 @@
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1A1E23; /* Set your desired background color for the body */
+  }
+
+  .navbar {
+    width: 1592.375px;;
+    height: 60px;
+    background-color: #252B33;
+    position: fixed;
+    top: 0;
+    left: 77.63px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+
+  .horizontal-navbar a {
+    width:1592.375px;
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .horizontal-navbar a:hover {
+    background-color: #555;
+  }
+
+  .vertical-navbar {
+    width: 77.63px;
+    height: 100%;
+    background-color: #2A3139;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+
+  .vertical-navbar a {
+    text-decoration: none;
+    
+  }
+  .logo-container {
+    position: absolute;
+    top: 10px;
+    width: 58.22px;
+    height: 45.66px;
+  }
+  
+  .logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* This property ensures that the entire image is visible within the container without distortion */
+  }
+
+
+  .sport-logo {
+    position: absolute;
+    width: 29.11px;
+    height: 30.1px;
+    top: 96px;
+    left: 24.26px;
+    color: #6A7787;
+  }
+  
+  .sport-logo:hover a {
+    color: white;
+  }
+  
+  .sport-logo a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .text-li {
+    font-family: "Neue Croco sans Medium", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14.24px;
+    color: #6A7787;
+  }
+  .sport-logo:hover svg path {
+    fill: white;
+    transition:  0.3s ease;
+
+  }
+  .sport-logo:hover .text-li {
+    color: white;
+    transition:  0.3s ease;
+  }
+ 
+  .live-logo {
+    position: absolute;
+    width:30.08px;
+    height:22.45px;
+    top: 193px;
+    left: 24.26px;
+    /* Add any additional styles or properties as needed */
+  }
+
+  .live-logo:hover svg path {
+    fill: white;
+    transition:  0.3s ease;
+
+  }
+  .live-logo:hover .text-li {
+    color: white;
+    transition:  0.3s ease;
+  }
+
+  .live-logo a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .slot-logo {
+    position: absolute;
+    width:30.08px;
+    height:26.96px;
+    top:283px;
+    left: 24.26px;
+    color: #6A7787;
+  }
+
+
+
+  .slot-logo a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .casino-logo {
+    position: absolute;
+    width: 50.46px;
+    height: 54.78px;
+    top: 377px;
+    left: 13.58px;
+    /* Add any additional styles or properties as needed */
+  }
+
+  .casino-logo:hover svg path {
+    fill: white;
+    transition:  0.3s ease;
+
+  }
+  .casino-logo:hover .text-li {
+    color: white;
+    transition:  0.3s ease;
+  }
+
+  .casino-logo a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  li{
+    list-style: none
+  }
+ .category-navbar {
+  width: 1592.375px;
+  height: 106px;
+  background-color: #1D242C;
+  position: fixed;
+  top: 496px;
+  left: 85.39px;
+  display: flex;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.category-navbar a {
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+  margin-right: 20px;
+  top:0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.category-navbar a:hover {
+  background-color: #46505A;
+}
+
+.child-category-navbar {
+  width: 100%; /* Make the child navbar stretch to the full width */
+  height: 53px;
+  background-color: #272D36;
+  position: absolute; /* Change to absolute positioning */
+  bottom: 0; /* Adjust as needed based on the design */
+  left: 0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.child-category-navbar a {
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+  // 15af44
+
+}
+
+.child-category-navbar a:hover {
+  background-color: #46505A;
+}
+/* In your.component.css or styles.scss file */
+
+.navigation-list{
+ 
+  height: 100%;
+}
