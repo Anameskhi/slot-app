@@ -10,29 +10,18 @@
     width: 1592.375px;;
     height: 60px;
     background-color: #252B33;
-    position: fixed;
     top: 0;
     left: 77.63px;
     display: flex;
+    position: relative;
+    padding: 0 20px;
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
     z-index: 1000;
   }
 
-  .horizontal-navbar a {
-    width:1592.375px;
-    text-decoration: none;
-    color: white;
-    margin: 0 15px;
-    padding: 10px;
-    transition: background-color 0.3s ease;
-  }
-
-  .horizontal-navbar a:hover {
-    background-color: #555;
-  }
-
+ 
   .vertical-navbar {
     width: 77.63px;
     height: 100%;
@@ -47,7 +36,6 @@
     box-sizing: border-box;
     z-index: 1000;
   }
-
   .vertical-navbar a {
     text-decoration: none;
     
@@ -84,6 +72,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative; /* Add this line to make the ::after positioned relative to this container */
+  }
+  
+  .sport-logo a::after {
+    content: "";
+    display: block;
+    width: 4px;
+    background-color: #15AF44;
+    position: absolute;
+    top: 50%; /* Position it in the middle vertically */
+    left: -23.3px;
+    transform: translateY(-50%); /* Translate along the vertical axis */
+  }
+  
+  .sport-logo a:hover::after {
+    height: 77px;
+    width:2.91px 
+
   }
   
   .text-li {
@@ -128,6 +134,22 @@
     flex-direction: column;
     align-items: center;
   }
+  .live-logo a::after {
+    content: "";
+    display: block;
+    width: 4px;
+    background-color: #15AF44;
+    position: absolute;
+    top: 50%; /* Position it in the middle vertically */
+    left: -23.3px;
+    transform: translateY(-50%); /* Translate along the vertical axis */
+  }
+  
+  .live-logo a:hover::after {
+    height: 77px;
+    width:2.91px 
+  }
+  
   .slot-logo {
     position: absolute;
     width:30.08px;
@@ -138,6 +160,13 @@
   }
 
 
+ .vertical-line {
+    width: 2.91px;
+    height: 77px;
+    top: 268px;
+    left: 0.97px;
+    background-color: #189541;
+  }
 
   .slot-logo a {
     text-decoration: none;
@@ -145,41 +174,80 @@
     flex-direction: column;
     align-items: center;
   }
-
-  .casino-logo {
+  .slot-logo a::after {
+    content: "";
+    display: block;
+    width: 2.91px;
+    background-color: #15AF44;
     position: absolute;
+    top: 50%; /* Position it in the middle vertically */
+    left: -23.3px;
+    transform: translateY(-50%); /* Translate along the vertical axis */
+    height: 77px; /* Initial height set to 0 */
+  }
+  
+ 
+  .casino-logo {
+    position: absolute; /* Set position to relative for proper positioning of the pseudo-element */
     width: 50.46px;
     height: 54.78px;
     top: 377px;
     left: 13.58px;
     /* Add any additional styles or properties as needed */
   }
-
+  
   .casino-logo:hover svg path {
     fill: white;
-    transition:  0.3s ease;
-
+    transition: 0.3s ease;
   }
+  
   .casino-logo:hover .text-li {
     color: white;
-    transition:  0.3s ease;
+    transition: 0.3s ease;
   }
-
+  
   .casino-logo a {
     text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative; /* Set position to relative for proper positioning of the pseudo-element */
   }
+  
+  .casino-logo a::after {
+    content: "";
+    display: block;
+    width: 4px;
+    background-color: #15AF44;
+    position: absolute;
+    top: 50%; /* Position it in the middle vertically */
+    left: -23.3px;
+    transform: translateY(-50%); /* Translate along the vertical axis */
+    height: 0; /* Initial height set to 0 */
+  }
+  
+  .casino-logo a:hover::after {
+    height: 77px /* Expand the height to cover the entire container on hover */
+  }
+  
   li{
     list-style: none
   }
- .category-navbar {
+  .cover-img{
+    position: absolute; 
+    top: 68px; 
+    left: 85.39px;
+    width: 1584.61px;
+    height: 420px
+  }
+  .category-navbar {
   width: 1592.375px;
   height: 106px;
   background-color: #1D242C;
-  position: fixed;
-  top: 496px;
+  position: relative;
+  padding: 0 20px;
+
+  top: 440px;
   left: 85.39px;
   display: flex;
   box-sizing: border-box;
@@ -192,45 +260,272 @@
   padding: 15px;
   margin-right: 20px;
   top:0;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease;
 }
 
 .category-navbar a:hover {
-  background-color: #46505A;
 }
-
 .child-category-navbar {
-  width: 100%; /* Make the child navbar stretch to the full width */
+  width: 100%;
   height: 53px;
   background-color: #272D36;
-  position: absolute; /* Change to absolute positioning */
-  bottom: 0; /* Adjust as needed based on the design */
+  position: relative;
+  bottom: 0;
   left: 0;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   z-index: 1000;
 }
-
 .child-category-navbar a {
+  color: #6A7787;
+  position: relative;
   text-decoration: none;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  width: 100%;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease;
-  // 15af44
-
 }
-
 .child-category-navbar a:hover {
-  background-color: #46505A;
+  color: white;
 }
-/* In your.component.css or styles.scss file */
+.child-category-navbar a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  background-color: #15AF44;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.child-category-navbar a:hover::after {
+  width: 89.24px;
+}
+
+.top-slot-svg {
+  width: 30.6px;
+  height: 18px;
+  top: 515px;
+  left: 106.18px;
+}
+.top-slot{
+  font-family: "Neue Croco Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14.24px;
+}
+
+.count{
+  width: 11.26px;
+  height: 11px;
+  top: 504px;
+  left: 187.63px;
+  position: absolute;
+}
+.top-slot-count{
+  font-family: 'Neue Croco Sans Medium', sans-serif; /* Adjust the font family name if needed */
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 11.19px;
+  color: #15AF44;
+  
+}
+
+
+
+/////////////
+
+.child-category-navbar {
+  width: 100%;
+  height: 53px;
+  background-color: #272D36;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+.child-category-navbar a {
+  color: #6A7787;
+  position: relative;
+  text-decoration: none;
+}
+.child-category-navbar a:hover {
+  color: white;
+}
+.child-category-navbar a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  background-color: #15AF44;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.child-category-navbar a:hover::after {
+  width: 89.24px;
+}
+///////////////////
+
 
 .navigation-list{
  
   height: 100%;
+}
+
+
+.first-card{
+  width: 444.4px;
+  height: 368px;
+  top: 614px;
+  left: 85.39px;
+  position: absolute; 
+}
+.next-cards{
+    width: 216.38px;
+    height: 178px;
+    top: 614px;
+    left: 541.43px;
+    position: absolute; /* Make sure to set position if not already set */
+    /* Add any additional styles or properties as needed */
+}
+.next-cards-1{
+  width: 216.38px;
+  height: 178px;
+  top: 614px;
+  left: 541.43px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+
+.next-cards-2{
+  width: 216.38px;
+  height: 178px;
+  top: 614px;
+  left: 769.46px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-3{
+  width: 216.38px;
+  height: 178px;
+  top: 614px;
+  left:997.48px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-4{
+  width: 216.38px;
+  height: 178px;
+  top: 614px;
+  left: 1225.5px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-5{
+  width: 216.38px;
+  height: 178px;
+  top: 614px;
+  left: 1449.65px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-6{
+  width: 216.38px;
+  height: 178px;
+  top:  804px;
+  left: 541.43px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-7{
+  width: 216.38px;
+  height: 178px;
+  top:  804px;
+  left: 769.46px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-8{
+  width: 216.38px;
+  height: 178px;
+  top:  804px;
+  left: 997.48px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-9{
+  width: 216.38px;
+  height: 178px;
+  top:  804px;
+  left: 1225.5px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-10{
+  width: 216.38px;
+  height: 178px;
+  top:  804px;
+  left: 1454px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-11{
+  width: 216.38px;
+  height: 178px;
+  top:  994px;
+  left: 85.39px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-12{
+  width: 216.38px;
+  height: 178px;
+  top:  994px;
+  left: 313.41px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-13{
+  width: 216.38px;
+  height: 178px;
+  top:  994px;
+  left: 541.43px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-14{
+  width: 216.38px;
+  height: 178px;
+  top:  994px;
+  left: 769.46px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-15{
+  width: 216.38px;
+  height: 178px;
+  top:  994px;
+  left: 997.48px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-16{
+  width: 216.38px;
+  height: 178px;
+  top:  994px;
+  left: 1225.5px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
+}
+.next-cards-17{
+  width: 216.38px;
+  height: 178px;
+  top:  994px;
+  left: 1450px;
+  position: absolute; /* Make sure to set position if not already set */
+  /* Add any additional styles or properties as needed */
 }
