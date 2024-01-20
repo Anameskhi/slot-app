@@ -3,7 +3,7 @@ import { SlotsComponent } from "./slots.component";
 
 export const SLOTS_ROUTES: Routes = [
     {
-        path: 'slot',
+        path: '',
         component: SlotsComponent
     }
 ]

@@ -15,19 +15,7 @@ import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
   providers:[HttpClientModule,HttpClient,BrowserModule,SlotService],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'croco-project';
-  constructor( private slotService: SlotService){}
-  games!:any[]
-  ngOnInit(): void {
-    this.slotService.getAllCategories().subscribe(res=>{
-      this.games = res.data
-      console.log(res.data)
-    })
-
-    this.slotService.getProvidersList().subscribe(res=>console.log(res.data))
-    this.slotService.getSlotsByProvider().subscribe(res=>console.log(res.data))
-
-  }
 
 }
