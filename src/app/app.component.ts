@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { SlotService } from './core/services/slot.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { MainLayoutComponent } from './pages/main-layout/main-layout.component';
 
 @Component({
   selector: 'app-root',
