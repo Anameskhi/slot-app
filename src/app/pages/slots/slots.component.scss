@@ -1,71 +1,160 @@
-.cover-img{
-    top: 68px; 
-    left: 85.39px;
-    width: 1584.61px;
-    height: 420px
-  }
-  .category-navbar {
-  width: 1592.375px;
-  height: 106px;
-  background-color: #1D242C;
-  top: 440px;
-  left: 85.39px;
-  box-sizing: border-box;
-  z-index: 1000;
- 
-
-
-}
-
-
-.category-navbar a:hover {
-}
-.child-category-navbar {
-  display: flex;
-  flex-wrap: wrap;
+section {
   width: 100%;
-  height: 53px;
-  background-color: #272D36;
-  bottom: 0;
-  left: 0;
-}
-.child-category-navbar a {
-  color: #6A7787;
-  position: relative;
-  text-decoration: none;
-}
-.child-category-navbar a:hover {
-  color: white;
-}
-.child-category-navbar a::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 4px;
-  background-color: #15AF44;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  height: calc(100vh - 60px);
+  padding: 0px 0px 0px 85px;
+  overflow: scroll;
 }
 
-.child-category-navbar a:hover::after {
-  width: 89.24px;
+.img-container {
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.category {
+  background-color: #1d242c;
+  border-radius: 5px;
+
+  ul {
+    color: white;
+    margin: 0px;
+    padding: 20px 20px 0px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      padding-bottom: 15px;
+
+      .svg-container {
+        display: flex;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+      }
+
+      .sum {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        font-size: 11px;
+      }
+    }
+
+    .active-category {
+      border-bottom: 4px solid #15af44;
+
+      .sum {
+        color: #15af44;
+      }
+    }
+  }
+}
+
+.childe-category {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #272d36;
+
+  a {
+    text-decoration: none;
+    color: #d9e3ef;
+    font-size: 14px;
+  }
+}
+
+.cards-area {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+  padding-top: 12px;
+  padding-right: 12px;
+
+  .card {
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    .card-img {
+      position: relative;
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    .card-title {
+      padding: 10px 15px 15px;
+      margin: 0px;
+      font-size: 14px;
+      color: white;
+      background-color: #252b33;
+    }
+
+    .card-button {
+      display: none;
+    }
+
+    &:hover .card-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-color: #000000b2;
+      cursor: pointer;
+
+      button {
+        cursor: pointer;
+        border: none;
+        background-color: #15af44;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 40px;
+      }
+    }
+  }
+
+  .card:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+
+    .card-img {
+      height: calc(100% - 41px);
+      img {
+        height: 100%;
+      }
+    }
+  }
 }
 
 .see-more {
-  padding: 17px 20px 13px;
   margin-left: auto; /* Add this line to push the button to the right */
   background: transparent;
   color: #fff;
   cursor: pointer;
   border: none;
 }
-.see-more-btn__arrow{
-    width: 14px;
-    margin-left: 12px;
-    transform: rotate(180deg);
-    transition: .2s;
+.see-more-btn__arrow {
+  width: 14px;
+  margin-left: 12px;
+  transform: rotate(180deg);
+  transition: 0.2s;
 }
 .hidden-categories {
   display: none;
@@ -74,225 +163,17 @@
 .child-category-navbar.expanded {
   height: auto;
 }
-.count{
-  width: 11.26px;
-  height: 11px;
-  top: 504px;
-  left: 187.63px;
-  position: relative;
-}
 
-.top-slot-count{
-  font-family: 'Neue Croco Sans Medium', sans-serif; /* Adjust the font family name if needed */
+.top-slot-count {
+  font-family: "Neue Croco Sans Medium", sans-serif; /* Adjust the font family name if needed */
   font-weight: 500;
   font-size: 11px;
   line-height: 11.19px;
-  color: #15AF44;
-  
+  color: #15af44;
 }
-.top-slot-svg{
-  Width:15.6px;
-Height:18px;
-Top:515px;
-Left:106.18px
-}
-
-
-/////////////
-
-.child-category-navbar {
-  width: 100%;
-  height: 53px;
-  background-color: #272D36;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-.child-category-navbar a {
-  color: #6A7787;
-  position: relative;
-  text-decoration: none;
-}
-.child-category-navbar a:hover {
-  color: white;
-}
-.child-category-navbar a::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 4px;
-  background-color: #15AF44;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.child-category-navbar a:hover::after {
-  width: 89.24px;
-}
-///////////////////
-
-
-.navigation-list{
- 
-  height: 100%;
-}
-
-
-.first-card{
-  width: 444.4px;
-  height: 368px;
-  top: 614px;
-  left: 85.39px;
-  position: absolute; 
-}
-.next-cards{
-    width: 216.38px;
-    height: 178px;
-    top: 614px;
-    left: 541.43px;
-    position: absolute; /* Make sure to set position if not already set */
-    /* Add any additional styles or properties as needed */
-}
-.next-cards-1{
-  width: 216.38px;
-  height: 178px;
-  top: 614px;
-  left: 541.43px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-
-.next-cards-2{
-  width: 216.38px;
-  height: 178px;
-  top: 614px;
-  left: 769.46px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-3{
-  width: 216.38px;
-  height: 178px;
-  top: 614px;
-  left:997.48px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-4{
-  width: 216.38px;
-  height: 178px;
-  top: 614px;
-  left: 1225.5px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-5{
-  width: 216.38px;
-  height: 178px;
-  top: 614px;
-  left: 1449.65px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-6{
-  width: 216.38px;
-  height: 178px;
-  top:  804px;
-  left: 541.43px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-7{
-  width: 216.38px;
-  height: 178px;
-  top:  804px;
-  left: 769.46px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-8{
-  width: 216.38px;
-  height: 178px;
-  top:  804px;
-  left: 997.48px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-9{
-  width: 216.38px;
-  height: 178px;
-  top:  804px;
-  left: 1225.5px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-10{
-  width: 216.38px;
-  height: 178px;
-  top:  804px;
-  left: 1454px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-11{
-  width: 216.38px;
-  height: 178px;
-  top:  994px;
-  left: 85.39px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-12{
-  width: 216.38px;
-  height: 178px;
-  top:  994px;
-  left: 313.41px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-13{
-  width: 216.38px;
-  height: 178px;
-  top:  994px;
-  left: 541.43px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-14{
-  width: 216.38px;
-  height: 178px;
-  top:  994px;
-  left: 769.46px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-15{
-  width: 216.38px;
-  height: 178px;
-  top:  994px;
-  left: 997.48px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-16{
-  width: 216.38px;
-  height: 178px;
-  top:  994px;
-  left: 1225.5px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
-}
-.next-cards-17{
-  width: 216.38px;
-  height: 178px;
-  top:  994px;
-  left: 1450px;
-  position: absolute; /* Make sure to set position if not already set */
-  /* Add any additional styles or properties as needed */
+.top-slot-svg {
+  width: 15.6px;
+  height: 18px;
+  top: 515px;
+  left: 106.18px;
 }

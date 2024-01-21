@@ -1,21 +1,11 @@
 .navbar {
-    width: 1592.375px;
     height: 60px;
     background-color: #252B33;
-    top: 0;
-    left: 77.63px;
-    display: flex;
-    position: relative;
-    padding: 0 20px;
-    align-items: center;
-    padding: 0 20px;
-    box-sizing: border-box;
-    z-index: 1000;
   }
 
  
   .vertical-navbar {
-    width: 77.63px;
+    width: 80px;
     height: 100%;
     background-color: #2A3139;
     position: fixed;
@@ -42,7 +32,7 @@
   .logo-image {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* This property ensures that the entire image is visible within the container without distortion */
+    object-fit: contain; 
   }
 
 
@@ -64,7 +54,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative; /* Add this line to make the ::after positioned relative to this container */
+    position: relative; 
   }
   
   .sport-logo a::after {
@@ -73,9 +63,9 @@
     width: 4px;
     background-color: #15AF44;
     position: absolute;
-    top: 50%; /* Position it in the middle vertically */
+    top: 50%;
     left: -23.3px;
-    transform: translateY(-50%); /* Translate along the vertical axis */
+    transform: translateY(-50%); 
   }
   
   .sport-logo a:hover::after {
@@ -107,7 +97,6 @@
     height:22.45px;
     top: 193px;
     left: 24.26px;
-    /* Add any additional styles or properties as needed */
   }
 
   .live-logo:hover svg path {
@@ -132,9 +121,9 @@
     width: 4px;
     background-color: #15AF44;
     position: absolute;
-    top: 50%; /* Position it in the middle vertically */
+    top: 50%; 
     left: -23.3px;
-    transform: translateY(-50%); /* Translate along the vertical axis */
+    transform: translateY(-50%); 
   }
   
   .live-logo a:hover::after {
@@ -172,20 +161,19 @@
     width: 2.91px;
     background-color: #15AF44;
     position: absolute;
-    top: 50%; /* Position it in the middle vertically */
+    top: 50%; 
     left: -23.3px;
-    transform: translateY(-50%); /* Translate along the vertical axis */
-    height: 77px; /* Initial height set to 0 */
+    transform: translateY(-50%); 
+    height: 77px; 
   }
   
  
   .casino-logo {
-    position: absolute; /* Set position to relative for proper positioning of the pseudo-element */
+    position: absolute; 
     width: 50.46px;
     height: 54.78px;
     top: 377px;
     left: 13.58px;
-    /* Add any additional styles or properties as needed */
   }
   
   .casino-logo:hover svg path {
@@ -203,7 +191,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative; /* Set position to relative for proper positioning of the pseudo-element */
+    position: relative; 
   }
   
   .casino-logo a::after {
@@ -212,14 +200,14 @@
     width: 4px;
     background-color: #15AF44;
     position: absolute;
-    top: 50%; /* Position it in the middle vertically */
+    top: 50%; 
     left: -23.3px;
-    transform: translateY(-50%); /* Translate along the vertical axis */
-    height: 0; /* Initial height set to 0 */
+    transform: translateY(-50%); 
+    height: 0; 
   }
   
   .casino-logo a:hover::after {
-    height: 77px /* Expand the height to cover the entire container on hover */
+    height: 77px 
   }
   
   li{
