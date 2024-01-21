@@ -7,11 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class SlotService extends BaseService {
 
-  getAllUsers(pageCount:number):Observable<any>{
-    return this.get<any>(`users?_page=${pageCount}`)
-  }
 
-  getAllCategories():Observable<any>{
+  getCategories():Observable<any>{
     return this.get<any>(`/v2/slot/categories?include=games`)
   }
 
@@ -20,6 +17,6 @@ export class SlotService extends BaseService {
 
   }
   getSlotsByProvider(provider: string):Observable<any>{
-    return this.get<any>(`/v2/slot/providers/${{provider}}`)
+    return this.get<any>(`/v2/slot/providers/${provider}`)
   }
 }

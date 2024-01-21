@@ -6,6 +6,8 @@
   <article class="category">
     <ul>
       <li
+        [routerLink]="['filter-slots']"
+        [queryParams]="{'filterType':'provider','filter': info.filter}" 
         *ngFor="let info of categoryNavBarInfo; index as i"
         [ngClass]="{ 'active-category': i === 0 }"
       >
@@ -18,18 +20,16 @@
       </li>
     </ul>
 
-    <div class="childe-category" [ngClass]="{ expanded: isExpanded }">
-      <a href="#" *ngFor="let game of visibleCategories">{{ game.category }}</a>
+    <div class="child-category" [ngClass]="{ expanded: isExpanded }">
+      <a 
+      [routerLink]="['filter-slots']"
+      [queryParams]="{'filterType':'provider','filter': provider.provider}"  
+      routerLinkActive="router-link-active"  
+      *ngFor="let provider of visibleProvider">
+      {{ provider.provider }}
+    </a>
 
-      <ng-container *ngIf="isExpanded">
-        <a
-          href="#"
-          *ngFor="let game of hiddenCategories"
-          class="hidden-categories"
-          >{{ game.category }}</a
-        >
-      </ng-container>
-      <button class="see-more" (click)="toggleCategories()">
+      <button class="see-more">
         See More
         <svg
           class="see-more-btn__arrow"
@@ -66,15 +66,5 @@
     </div>
   </article>
 
-  <article class="cards-area">
-    <div class="card" *ngFor="let card of cardsInfo">
-      <div class="card-img">
-        <div class="card-button">
-          <button>PLAY</button>
-        </div>
-        <img src="../assets/images/card-img.png" alt="" />
-      </div>
-      <p class="card-title">{{ card }}</p>
-    </div>
-  </article>
+<router-outlet></router-outlet>
 </section>

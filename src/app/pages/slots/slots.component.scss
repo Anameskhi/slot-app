@@ -2,7 +2,7 @@ section {
   width: 100%;
   height: calc(100vh - 60px);
   padding: 0px 0px 0px 85px;
-  overflow: scroll;
+  overflow: none;
 }
 
 .img-container {
@@ -28,6 +28,7 @@ section {
     gap: 20px;
 
     li {
+      cursor: pointer;
       position: relative;
       display: flex;
       align-items: center;
@@ -60,7 +61,7 @@ section {
   }
 }
 
-.childe-category {
+.child-category {
   padding: 20px;
   display: flex;
   align-items: center;
@@ -69,79 +70,16 @@ section {
 
   a {
     text-decoration: none;
-    color: #d9e3ef;
+    color: #6A7787;
+    position: relative;
     font-size: 14px;
   }
-}
-
-.cards-area {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 12px;
-  padding-top: 12px;
-  padding-right: 12px;
-
-  .card {
-    cursor: pointer;
-    border-radius: 5px;
-    overflow: hidden;
-    .card-img {
-      position: relative;
-      img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-    }
-
-    .card-title {
-      padding: 10px 15px 15px;
-      margin: 0px;
-      font-size: 14px;
-      color: white;
-      background-color: #252b33;
-    }
-
-    .card-button {
-      display: none;
-    }
-
-    &:hover .card-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      background-color: #000000b2;
-      cursor: pointer;
-
-      button {
-        cursor: pointer;
-        border: none;
-        background-color: #15af44;
-        color: white;
-        border-radius: 5px;
-        padding: 10px 40px;
-      }
-    }
-  }
-
-  .card:first-child {
-    grid-column: span 2;
-    grid-row: span 2;
-
-    .card-img {
-      height: calc(100% - 41px);
-      img {
-        height: 100%;
-      }
-    }
+  a:hover {
+    color: white;
   }
 }
+
+
 
 .see-more {
   margin-left: auto; /* Add this line to push the button to the right */

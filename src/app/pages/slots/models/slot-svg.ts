@@ -24,6 +24,7 @@ export const SlotCategoryNavBarSVG = [
     />
   </svg>`,
     name: 'Top Slots',
+    filter: 'web:popular'
   },
   {
     svg: `<svg
@@ -56,6 +57,7 @@ export const SlotCategoryNavBarSVG = [
     />
   </svg>`,
     name: 'New Games',
+    filter: 'web:new_games'
   },
   {
     svg: `      <svg
@@ -79,6 +81,7 @@ export const SlotCategoryNavBarSVG = [
     />
   </svg>`,
     name: 'Buy Bonus',
+    filter: 'web:buy_bonus'
   },
   {
     svg: `      <svg
