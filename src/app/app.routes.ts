@@ -7,6 +7,11 @@ export const routes: Routes = [
         component: MainLayoutComponent,
         children: [
           {
+            path: '',
+            redirectTo: 'slots',
+            pathMatch: 'full'
+          },
+          {
             path: 'sport',
             loadChildren: () => import('./pages/sport/sport.routes').then(r => r.SPORT_ROUTES)
           },
