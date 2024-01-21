@@ -19,7 +19,7 @@ export class SlotService extends BaseService {
     return this.get<any>(`?type=slot&platform=desktop`)
 
   }
-  getSlotsByProvider():Observable<any>{
-    return this.get<any>(`/v2/slot/providers/TPG@bet-construct`)
+  getSlotsByProvider(provider: string):Observable<any>{
+    return this.get<any>(`/v2/slot/providers/${{provider}}`)
   }
 }

@@ -1,5 +1,4 @@
 .cover-img{
-    position: absolute; 
     top: 68px; 
     left: 85.39px;
     width: 1584.61px;
@@ -9,37 +8,26 @@
   width: 1592.375px;
   height: 106px;
   background-color: #1D242C;
-  position: relative;
-  padding: 0 20px;
-
   top: 440px;
   left: 85.39px;
-  display: flex;
   box-sizing: border-box;
   z-index: 1000;
+ 
+
+
 }
 
-.category-navbar a {
-  text-decoration: none;
-  color: white;
-  padding: 15px;
-  margin-right: 20px;
-  top:0;
-}
 
 .category-navbar a:hover {
 }
 .child-category-navbar {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height: 53px;
   background-color: #272D36;
-  position: relative;
   bottom: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  z-index: 1000;
 }
 .child-category-navbar a {
   color: #6A7787;
@@ -65,26 +53,35 @@
   width: 89.24px;
 }
 
-.top-slot-svg {
-  width: 30.6px;
-  height: 18px;
-  top: 515px;
-  left: 106.18px;
+.see-more {
+  padding: 17px 20px 13px;
+  margin-left: auto; /* Add this line to push the button to the right */
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  border: none;
 }
-.top-slot{
-  font-family: "Neue Croco Sans", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 14.24px;
+.see-more-btn__arrow{
+    width: 14px;
+    margin-left: 12px;
+    transform: rotate(180deg);
+    transition: .2s;
+}
+.hidden-categories {
+  display: none;
 }
 
+.child-category-navbar.expanded {
+  height: auto;
+}
 .count{
   width: 11.26px;
   height: 11px;
   top: 504px;
   left: 187.63px;
-  position: absolute;
+  position: relative;
 }
+
 .top-slot-count{
   font-family: 'Neue Croco Sans Medium', sans-serif; /* Adjust the font family name if needed */
   font-weight: 500;
@@ -93,7 +90,12 @@
   color: #15AF44;
   
 }
-
+.top-slot-svg{
+  Width:15.6px;
+Height:18px;
+Top:515px;
+Left:106.18px
+}
 
 
 /////////////
