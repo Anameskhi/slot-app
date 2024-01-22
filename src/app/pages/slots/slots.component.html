@@ -7,7 +7,7 @@
     <ul>
       <li
         [routerLink]="['filter-slots']"
-        [queryParams]="{'filterType':'provider','filter': info.filter}" 
+        [queryParams]="{'filterType':'category','filter': info.filter}" 
         *ngFor="let info of categoryNavBarInfo; index as i"
         [ngClass]="{ 'active-category': i === 0 }"
       >
@@ -25,7 +25,7 @@
       [routerLink]="['filter-slots']"
       [queryParams]="{'filterType':'provider','filter': provider.provider}"  
       routerLinkActive="router-link-active"  
-      *ngFor="let provider of visibleProvider">
+      *ngFor="let provider of visibleProvider$ | async">
       {{ provider.provider }}
     </a>
 

@@ -15,6 +15,7 @@ export class SlotsFilterComponent implements OnInit{
   selectedGamesArray:any = []
  
   constructor(private activatedRoute: ActivatedRoute, private slotService: SlotService){}
+  
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(res => {
       this.activatedFilterRoute = res['filter'];

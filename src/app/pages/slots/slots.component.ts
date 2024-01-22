@@ -4,6 +4,7 @@ import { SlotService } from 'src/app/core/services/slot.service';
 import { SlotCategoryNavBarSVG } from './models/slot-svg';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-slots',
@@ -13,33 +14,23 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrls: ['./slots.component.scss'],
 })
 export class SlotsComponent {
+
+  initialDisplayCount = 18;
+  isExpanded = false;
+  categoryNavBarInfo = SlotCategoryNavBarSVG;
+  providers$ = this.slotService.getProvidersList().pipe(map(res => res.data));
+  visibleProvider$ = this.providers$.pipe(map(providers => providers.slice(0, this.initialDisplayCount)));
+
+  
   constructor(
     private slotService: SlotService,
     private sanitizer: DomSanitizer
   ) {}
 
-  providers!: any[];
-  visibleProvider: any[] = [];
-  initialDisplayCount = 18;
-  isExpanded = false;
-
-  categoryNavBarInfo = SlotCategoryNavBarSVG;
-  
-
   ngOnInit(): void {
-    this.getProviderList()
   }
 
   getSanitizedSvg(svgString: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(svgString);
   }
-
-  getProviderList(){
-    this.slotService.getProvidersList().subscribe((res) => {
-      this.providers = res.data;
-      this.visibleProvider = this.providers.slice(0, this.initialDisplayCount);
-    });
-  }
-
-  
 }
