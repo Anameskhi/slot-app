@@ -16,7 +16,7 @@
           [innerHTML]="getSanitizedSvg(info.svg)"
         ></span>
         <span>{{ info.name }}</span>
-        <span class="sum">25</span>
+        <span  class="sum">{{info.totalGames}}</span>
       </li>
     </ul>
 
@@ -26,7 +26,7 @@
       [queryParams]="{'filterType':'provider','filter': provider.provider}"  
       routerLinkActive="router-link-active"  
       *ngFor="let provider of visibleProvider$ | async">
-      {{ provider.provider }}
+      {{ provider.name }}
     </a>
 
       <button class="see-more">

@@ -19,25 +19,28 @@ export class SlotsFilterComponent implements OnInit{
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(res => {
       this.activatedFilterRoute = res['filter'];
-      this.getSlotsByProvider()
+      this.getSlots()
     })
   }
 
-  getSlotsByProvider(){
-    if (this.activatedFilterRoute) {
-      this.slotService.getSlotsByProvider(this.activatedFilterRoute).subscribe(res=>{
-        this.selectedGamesArray = res.data.games
-      });
-      this.getSlotByCategory()
+  getSlots(){
+    if (this.activatedFilterRoute ) {
+      const filterType = this.activatedRoute.snapshot.queryParams['filterType']
+      if( filterType === 'provider'){
+        this.slotService.getSlotsByProvider(this.activatedFilterRoute).subscribe(res=>{
+          this.selectedGamesArray = res.data.games
+        });
+      }else{
+        this.getSlotsByCategory()
+      }
     }
   }
 
-  getSlotByCategory() {
-      this.slotService.getCategories().subscribe(res => {
-        const filteredObjects = res.data.filter((slotObj: any) => {
-          return slotObj.category.includes(this.activatedFilterRoute);
-        });
-        this.selectedGamesArray = [].concat(...filteredObjects.map((slotObj: any) => slotObj.games));
-  })
-}
+  getSlotsByCategory() {
+    this.slotService.getCategories().subscribe(res => {
+      const matchingSlot = res.data.find(slot => slot.category === this.activatedFilterRoute);
+      this.selectedGamesArray = matchingSlot?.games;
+      this.slotService.totalGames.next(matchingSlot?.totalGames)
+    });
+  }
 }

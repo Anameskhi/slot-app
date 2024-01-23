@@ -1,4 +1,4 @@
-export const SlotCategoryNavBarSVG = [
+export const SlotCategoryNavBar= [
   {
     svg: `        <svg
     class="top-slot-svg"
@@ -24,7 +24,8 @@ export const SlotCategoryNavBarSVG = [
     />
   </svg>`,
     name: 'Top Slots',
-    filter: 'web:popular'
+    filter: 'web:popular',
+    totalGames: 25
   },
   {
     svg: `<svg
@@ -57,7 +58,8 @@ export const SlotCategoryNavBarSVG = [
     />
   </svg>`,
     name: 'New Games',
-    filter: 'web:new_games'
+    filter: 'web:new_games',
+    totalGames: 30
   },
   {
     svg: `      <svg
@@ -81,7 +83,8 @@ export const SlotCategoryNavBarSVG = [
     />
   </svg>`,
     name: 'Buy Bonus',
-    filter: 'web:buy_bonus'
+    filter: 'web:buy_bonus',
+    totalGames: 31
   },
   {
     svg: `      <svg
