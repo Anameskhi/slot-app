@@ -196,7 +196,20 @@ li {
         bottom: 0;
         background-color: #15af44;
     }
-    @extend .info-name-color;
+    color: #fff;
+
+    // Duplicate styles from .active-category .sum
+    .active-category & {
+      .sum {
+        color: #15af44;
+      }
+    }
+
+    // Duplicate styles from .img-active
+    .img-active & {
+      filter: invert(45%) sepia(91%) saturate(458%) hue-rotate(86deg) brightness(99%) contrast(90%);
+    }
+   
     }
 
    
