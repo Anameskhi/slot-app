@@ -1,6 +1,6 @@
 import { signal } from "@angular/core";
 
-export const SlotCategoryNavBarSVG = [
+export const SlotCategoryNavBarInfo = [
   {
     svg: `top-slots.svg`,
     name: 'Top Slots',
