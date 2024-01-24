@@ -1,25 +1,30 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import {SlotCategory} from '../interfaces/slotCategory.interface';
+import { ProviderList } from '../interfaces/providerList.interface';
+import { SlotProvider } from '../interfaces/slotProvider.interface';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class SlotService extends BaseService {
+   totalGames: Subject<number | undefined> = new Subject<number| undefined>()
 
-  getAllUsers(pageCount:number):Observable<any>{
-    return this.get<any>(`users?_page=${pageCount}`)
+  getCategories():Observable<SlotCategory>{
+    return this.get<SlotCategory>(`/v2/slot/categories?include=games`)
   }
 
-  getAllCategories():Observable<any>{
-    return this.get<any>(`/v2/slot/categories?include=games`)
-  }
-
-  getProvidersList():Observable<any>{
-    return this.get<any>(`?type=slot&platform=desktop`)
+  getProvidersList():Observable<ProviderList>{
+    return this.get<ProviderList>(`?type=slot&platform=desktop`)
 
   }
-  getSlotsByProvider():Observable<any>{
-    return this.get<any>(`/v2/slot/providers/TPG@bet-construct`)
+  getSlotsByProvider(provider: string):Observable<SlotProvider>{
+    return this.get<SlotProvider>(`/v2/slot/providers/${provider}`)
   }
+
+
 }

@@ -1,0 +1,58 @@
+<section>
+  <article class="img-container">
+    <img src="assets/images/cover.svg" alt="img"/>
+  </article>
+
+  <article class="category">
+    <ul class="navigation-list-item">
+      <li *ngFor="let info of categoryNavBarInfo; index as i"
+          [routerLink]="['filter-slots']"
+          [queryParams]="{'filterType':'category','filter': info.filter}">
+        <div class="category-item">
+          <img 
+          [src]="'assets/images/' + info.svg" alt="icon" 
+          class="svg-container" 
+          [ngClass]="{'img-active': info.filter === currentFilter()}"/>
+          <span 
+          [ngStyle]="{'color': i === 0? '#fff' : '#6A7787;'}" 
+          [ngClass]="{'info-name-color': info.filter === currentFilter()}">
+          {{ info.name }}
+        </span>
+          <span  
+          [ngStyle]="{'color': i === 0 || info.filter === currentFilter() ? '#15af44' : '#6A7787'}" 
+          class="sum" >
+          {{info.totalGames}}
+        </span>
+        </div>
+        <div *ngIf="info.filter === currentFilter()" class="underline"></div>
+      </li>
+    </ul>
+
+    <div 
+    class="child-category" 
+    [ngClass]="{ expanded: isExpanded }" 
+    [ngStyle]="{'height': isExpanded ? '' : '50px'}">
+      <div 
+      class="categories" 
+      [ngStyle]="{'overflow-y': isExpanded ? 'none' : 'hidden', 'height': isExpanded ? '' : '50px'}">
+        <div *ngFor="let provider of providers$ | async" class="url-container" [ngStyle]="{'border-bottom': isExpanded ? '1px solid #1d242c' : 'none'}">
+          <a [routerLink]="['filter-slots']"
+             [queryParams]="{'filterType':'provider','filter': provider.provider}"
+             routerLinkActive="router-link-active link-hover-green-line">
+             <span class="text-li">{{ provider.name }}</span>
+
+            
+          </a>
+        </div>
+      </div>
+
+      <button class="see-more" (click)="isExpanded = !isExpanded">
+        <span>{{isExpanded? 'See Less' : 'See More'}}</span>
+        <img src="assets/images/expand.svg" alt="icon" class="expand-icon" [ngStyle]="{'transform': isExpanded ? 'rotate(0deg)' : 'rotate(180deg)'}">
+      </button>
+    </div>
+  </article>
+
+  <router-outlet></router-outlet>
+</section>
+<!-- [ngStyle]="{'transition': isExpanded ? '0.2s ease-in' : '0.2s ease-out'}" -->

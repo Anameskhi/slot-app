@@ -1,0 +1,13 @@
+<article class="cards-area">
+  <div class="card" *ngFor="let game of selectedGamesArray()">
+    <div class="card-content">
+      <div class="card-img">
+        <div class="card-button">
+          <button>PLAY</button>
+        </div>
+        <img [src]="game.image" alt=""/>
+      </div>
+      <p class="card-title">{{ game.name }}</p>
+    </div>
+  </div>
+</article>

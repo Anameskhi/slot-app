@@ -1,0 +1,13 @@
+<a href="#" class="logo-container">
+  <img src="assets/images/logo.svg" alt="logo">
+</a>
+<div class="navigation-list">
+  <div *ngFor="let item of navBarList" class="navigation-list-item">
+    <a href="" [routerLink]="item.route" routerLinkActive="nav-bar-router-link-active link-hover-green-line">
+      <div>
+        <img [src]="'assets/images/' + item.icon" alt="icon" class="icon"/>
+      </div>
+      <span class="text-li">{{ item.title }}</span>
+    </a>
+  </div>
+</div>
