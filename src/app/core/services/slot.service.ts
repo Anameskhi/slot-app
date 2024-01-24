@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { Observable, Subject, map } from 'rxjs';
-import {Game, SlotCategory} from '../interfaces/slotCategory.interface';
-import { ProviderList } from '../interfaces/providerList.interface';
-import { SlotProvider } from '../interfaces/slotProvider.interface';
+import { Game, ProviderList, SlotCategory, SlotProvider } from '../interfaces/modal.interface';
 
 
 @Injectable({

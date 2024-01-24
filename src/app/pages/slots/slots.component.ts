@@ -1,4 +1,3 @@
-import { SlotCategory } from './../../core/interfaces/slotCategory.interface';
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlotService } from 'src/app/core/services/slot.service';
