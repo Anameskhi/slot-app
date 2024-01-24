@@ -187,6 +187,9 @@ section {
 
 li {
   &:hover {
+    .svg-container {
+      filter: invert(45%) sepia(91%) saturate(458%) hue-rotate(86deg) brightness(99%) contrast(90%);
+    }
     &::after {
       content: "";
         position: absolute;
@@ -197,5 +200,9 @@ li {
         background-color: #15af44;
     }
     @extend .info-name-color;
+    @extend .active-category 
     }
+  }
+  .active-li{
+    color: #15af44;
   }

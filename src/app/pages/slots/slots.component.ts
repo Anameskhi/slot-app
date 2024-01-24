@@ -20,7 +20,6 @@ export class SlotsComponent implements OnInit, OnDestroy {
   providers$ = this.slotService.getProvidersList().pipe(map(res => res.data));
   currentFilter = signal('');
   takUntilDestroy = new Subject()
-
   constructor(
     private slotService: SlotService,
     private activatedRoute: ActivatedRoute
@@ -42,8 +41,6 @@ export class SlotsComponent implements OnInit, OnDestroy {
   
   }
 
-
-  
 getSlotArray() {
   this.slotService.getCategories()
     .pipe(
@@ -59,4 +56,5 @@ getSlotArray() {
       }
     });
 }
+
 }

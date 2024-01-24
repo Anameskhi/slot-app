@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
-import { Observable, Subject } from 'rxjs';
-import {SlotCategory} from '../interfaces/slotCategory.interface';
+import { Observable, Subject, map } from 'rxjs';
+import {Game, SlotCategory} from '../interfaces/slotCategory.interface';
 import { ProviderList } from '../interfaces/providerList.interface';
 import { SlotProvider } from '../interfaces/slotProvider.interface';
 
@@ -26,5 +26,14 @@ export class SlotService extends BaseService {
     return this.get<SlotProvider>(`/v2/slot/providers/${provider}`)
   }
 
-
+  getGames(filterType: string, filter: string): Observable<Game[]>{
+    if (filterType === 'provider'){
+      return this.getSlotsByProvider(filter).
+      pipe(
+        map((provider)=> provider.data.games)
+      );
+    }else {
+      return this.getCategories().pipe(map(category=> category.data.filter(item=> item.category === filter)[0]?.games ?? []));
+    }
+  }
 }

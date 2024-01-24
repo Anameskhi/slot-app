@@ -19,7 +19,7 @@
           {{ info.name }}
         </span>
           <span  
-          [ngStyle]="{'color': i === 0 || info.filter === currentFilter() ? '#15af44' : '#6A7787'}" 
+          [ngClass]="{'active-li': i === 0 || info.filter === currentFilter() }" 
           class="sum" >
           {{info.totalGames}}
         </span>
@@ -40,8 +40,6 @@
              [queryParams]="{'filterType':'provider','filter': provider.provider}"
              routerLinkActive="router-link-active link-hover-green-line">
              <span class="text-li">{{ provider.name }}</span>
-
-            
           </a>
         </div>
       </div>
