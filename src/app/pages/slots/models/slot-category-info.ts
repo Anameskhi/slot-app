@@ -5,7 +5,7 @@ export const SlotCategoryNavBarInfo = [
     svg: `top-slots.svg`,
     name: 'Top Slots',
     filter: 'web:popular',
-    totalGAmes: 0
+    totalGames: 0
   },
   {
     svg: `favourites.svg`,
@@ -16,14 +16,14 @@ export const SlotCategoryNavBarInfo = [
     svg: `new-games.svg`,
     name: 'New Games',
     filter: 'web:new_games',
-    totalGAmes: 0
+    totalGames: 0
 
   },
   {
     svg: `buy-bonus.svg`,
     name: 'Buy Bonus',
     filter: 'web:buy_bonus',
-    totalGAmes: 0
+    totalGames: 0
 
   },
   {
