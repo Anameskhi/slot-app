@@ -1,38 +1,48 @@
-import { Component, HostListener } from '@angular/core';
+import { SlotCategory } from './../../core/interfaces/slotCategory.interface';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlotService } from 'src/app/core/services/slot.service';
-import { SlotCategoryNavBar} from './models/slot-svg';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { SlotCategoryNavBarSVG } from './models/slot-svg';
+import { ActivatedRoute, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { map } from 'rxjs';
 
 @Component({
   selector: 'app-slots',
   standalone: true,
-  imports: [CommonModule,RouterLink,RouterOutlet],
+  imports: [CommonModule, RouterLink, RouterOutlet, RouterLinkActive],
   templateUrl: './slots.component.html',
   styleUrls: ['./slots.component.scss'],
 })
-export class SlotsComponent {
+export class SlotsComponent implements OnInit {
 
-  initialDisplayCount = 18;
   isExpanded = false;
-  categoryNavBarInfo = SlotCategoryNavBar;
+  categoryNavBarInfo = SlotCategoryNavBarSVG;
   providers$ = this.slotService.getProvidersList().pipe(map(res => res.data));
-  visibleProvider$ = this.providers$.pipe(map(providers => providers.slice(0, this.initialDisplayCount)));
-  totalGames$ = this.slotService.totalGames
-  
+  currentFilter = signal('');
+
   constructor(
     private slotService: SlotService,
-    private sanitizer: DomSanitizer
-  ) {}
-
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.currentFilter.set(params['filter'])
+    });
+  }
   ngOnInit(): void {
-    this.slotService.getProvidersList().subscribe(res=>console.log(res))
+    this.getSlotArray()
+  
   }
 
-  getSanitizedSvg(svgString: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(svgString);
-  }
 
-}
+  getSlotArray(){
+    this.slotService.getCategories().subscribe(res=>{
+      const filterWithCategory = res.data.filter(res=> res.category == 'web:popular' || res.category == 'web:new_games' || res.category == 'web:buy_bonus')
+      filterWithCategory.forEach(filterSlot => {
+      const matchingSlot = SlotCategoryNavBarSVG.find(slot => slot.filter === filterSlot.category);
+      if (matchingSlot) {
+        matchingSlot.totalGAmes=filterSlot.totalGames;
+      }
+    });
+  });
+
+}}

@@ -1,68 +1,78 @@
 .cards-area {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 12px;
-    padding-top: 12px;
-    padding-right: 12px;
-  
-    .card {
-      cursor: pointer;
-      border-radius: 5px;
-      overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+  padding-top: 12px;
+  padding-right: 12px;
+
+  .card {
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .card-content {
+      background-color: #252b33;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       .card-img {
         position: relative;
+
+        .card-button {
+          display: none;
+        }
+
         img {
           width: 100%;
           height: auto;
           object-fit: cover;
         }
+
+        &:hover .card-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          background-color: #000000b2;
+          cursor: pointer;
+
+          button {
+            cursor: pointer;
+            border: none;
+            background-color: #15af44;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 40px;
+          }
+        }
       }
-  
+
       .card-title {
         padding: 10px 15px 15px;
-        margin: 0px;
+        margin: 0;
         font-size: 14px;
         color: white;
-        background-color: #252b33;
-      }
-  
-      .card-button {
-        display: none;
-      }
-  
-      &:hover .card-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        background-color: #000000b2;
-        cursor: pointer;
-  
-        button {
-          cursor: pointer;
-          border: none;
-          background-color: #15af44;
-          color: white;
-          border-radius: 5px;
-          padding: 10px 40px;
-        }
-      }
-    }
-  
-    .card:first-child {
-      grid-column: span 2;
-      grid-row: span 2;
-  
-      .card-img {
-        height: calc(100% - 41px);
-        img {
-          height: 100%;
-        }
       }
     }
   }
+
+  .card:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+
+    .card-img {
+      height: calc(100% - 41px);
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+}

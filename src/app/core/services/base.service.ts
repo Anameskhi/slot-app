@@ -22,5 +22,4 @@ export class BaseService {
   delete<T>(url: string): Observable<T>{
     return this.http.delete<T>(this.apiUrl + url)
   }
-
 }

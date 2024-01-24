@@ -10,12 +10,13 @@ import { SlotService } from 'src/app/core/services/slot.service';
   templateUrl: './slots-filter.component.html',
   styleUrls: ['./slots-filter.component.scss']
 })
-export class SlotsFilterComponent implements OnInit{
+export class SlotsFilterComponent implements OnInit {
   activatedFilterRoute?: string
-  selectedGamesArray:any = []
- 
-  constructor(private activatedRoute: ActivatedRoute, private slotService: SlotService){}
-  
+  selectedGamesArray: any = []
+
+  constructor(private activatedRoute: ActivatedRoute, private slotService: SlotService) {
+  }
+
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(res => {
       this.activatedFilterRoute = res['filter'];
@@ -23,14 +24,14 @@ export class SlotsFilterComponent implements OnInit{
     })
   }
 
-  getSlots(){
-    if (this.activatedFilterRoute ) {
+  getSlots() {
+    if (this.activatedFilterRoute) {
       const filterType = this.activatedRoute.snapshot.queryParams['filterType']
-      if( filterType === 'provider'){
-        this.slotService.getSlotsByProvider(this.activatedFilterRoute).subscribe(res=>{
+      if (filterType === 'provider') {
+        this.slotService.getSlotsByProvider(this.activatedFilterRoute).subscribe(res => {
           this.selectedGamesArray = res.data.games
         });
-      }else{
+      } else {
         this.getSlotsByCategory()
       }
     }
@@ -40,7 +41,6 @@ export class SlotsFilterComponent implements OnInit{
     this.slotService.getCategories().subscribe(res => {
       const matchingSlot = res.data.find(slot => slot.category === this.activatedFilterRoute);
       this.selectedGamesArray = matchingSlot?.games;
-      this.slotService.totalGames.next(matchingSlot?.totalGames)
     });
   }
 }

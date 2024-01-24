@@ -1,20 +1,19 @@
 .navbar {
-    height: 60px;
-    background-color: #252B33;
-  }
+  height: 60px;
+  background-color: #252B33;
+}
 
-  .vertical-navbar {
-    width: 80px;
-    height: 100%;
-    background-color: #2A3139;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    z-index: 1000;
-  }
- 
+.vertical-navbar {
+  width: 80px;
+  height: 100%;
+  background-color: #2A3139;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  z-index: 1000;
+}
