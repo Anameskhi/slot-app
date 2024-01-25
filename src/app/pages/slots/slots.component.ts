@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SlotService } from 'src/app/core/services/slot.service';
 import { SlotCategoryNavBarInfo } from './models/slot-category-info';
 import { ActivatedRoute, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { Subject, from, map, switchMap, takeUntil } from 'rxjs';
+import { Subject, from, map, switchMap, takeUntil, tap } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-slots',
@@ -12,48 +13,35 @@ import { Subject, from, map, switchMap, takeUntil } from 'rxjs';
   templateUrl: './slots.component.html',
   styleUrls: ['./slots.component.scss'],
 })
-export class SlotsComponent implements OnInit, OnDestroy {
+export class SlotsComponent  {
 
   isExpanded = false;
   categoryNavBarInfo = SlotCategoryNavBarInfo;
-  providers$ = this.slotService.getProvidersList().pipe(map(res => res.data));
+  providers = toSignal(this.slotService.getProviderList())
+  getTotalGames = toSignal(this.slotService.getTotalGames())
   currentFilter = signal('');
-  takUntilDestroy = new Subject()
   constructor(
     private slotService: SlotService,
     private activatedRoute: ActivatedRoute
   ) {
     this.activatedRoute.queryParams
-    .pipe(takeUntil(this.takUntilDestroy))
     .subscribe(params => {
       this.currentFilter.set(params['filter'])
     });
   }
 
-   ngOnDestroy(): void {
-    this.takUntilDestroy.next(null)
-    this.takUntilDestroy.complete()
-  }
-
-  ngOnInit(): void {
-    this.getSlotArray()
-  
-  }
-
-getSlotArray() {
-  this.slotService.getCategories()
-    .pipe(
-      takeUntil(this.takUntilDestroy),
-      map(res => res.data),
-      map(data => data.filter(item => ['web:popular', 'web:new_games', 'web:buy_bonus'].includes(item.category))),
-      switchMap(filteredData => filteredData),
-    )
-    .subscribe(filteredSlot => {
-      const matchingSlot = SlotCategoryNavBarInfo.find(slot => slot.filter === filteredSlot.category);
-      if (matchingSlot) {
-        matchingSlot.totalGames = filteredSlot.totalGames
-      }
-    });
-}
+  // getTotalGames() {
+  //   this.slotService.getCategories().pipe(
+  //     map(res => res.data.filter(item => ['web:popular', 'web:new_games', 'web:buy_bonus'].includes(item.category))),
+  //     tap(filteredSlot => {
+  //       filteredSlot.forEach(slotItem => {
+  //         const matchingSlot = SlotCategoryNavBarInfo.find(slot => slot.filter === slotItem.category);
+  //         if(matchingSlot){
+  //           matchingSlot.totalGames = slotItem.totalGames
+  //         }
+  //       });
+  //     })
+  //   ).subscribe();
+  // }
 
 }

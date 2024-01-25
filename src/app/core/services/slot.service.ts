@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
-import { Observable, Subject, map } from 'rxjs';
-import { Game, ProviderList, SlotCategory, SlotProvider } from '../interfaces/modal.interface';
+import { Observable, Subject, map, switchMap, tap } from 'rxjs';
+import { Game, ProviderList, SlotArray, SlotCategory, SlotProvider } from '../interfaces/modal.interface';
+import { SlotCategoryNavBarInfo } from 'src/app/pages/slots/models/slot-category-info';
 
 
 @Injectable({
@@ -34,4 +35,22 @@ export class SlotService extends BaseService {
       return this.getCategories().pipe(map(category=> category.data.filter(item=> item.category === filter)[0]?.games ?? []));
     }
   }
+
+  getTotalGames(): Observable<SlotArray[]>{
+   return this.getCategories().pipe(
+        map(res => res.data.filter(item => ['web:popular', 'web:new_games', 'web:buy_bonus'].includes(item.category))),
+        tap(filteredSlot => {
+          filteredSlot.forEach(slotItem => {
+            const matchingSlot = SlotCategoryNavBarInfo.find(slot => slot.filter === slotItem.category);
+            if(matchingSlot){
+              matchingSlot.totalGames = slotItem.totalGames
+            }
+          });
+        }),
+      )
+}
+
+getProviderList(): Observable<any>{
+  return this.getProvidersList().pipe(map(res => res.data))
+}
 }

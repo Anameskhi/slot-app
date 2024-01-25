@@ -35,7 +35,7 @@
       <div 
       class="categories" 
       [ngStyle]="{'overflow-y': isExpanded ? 'none' : 'hidden', 'height': isExpanded ? '' : '50px'}">
-        <div *ngFor="let provider of providers$ | async" class="url-container" [ngStyle]="{'border-bottom': isExpanded ? '1px solid #1d242c' : 'none'}">
+        <div *ngFor="let provider of providers() " class="url-container" [ngStyle]="{'border-bottom': isExpanded ? '1px solid #1d242c' : 'none'}">
           <a [routerLink]="['filter-slots']"
              [queryParams]="{'filterType':'provider','filter': provider.provider}"
              routerLinkActive="router-link-active link-hover-green-line">
